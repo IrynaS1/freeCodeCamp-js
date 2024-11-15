@@ -1,0 +1,40 @@
+/*  Задача
+ 
+Шаг 112 Что, если бы у вас был способ переключаться между перевернутой пирамидой и стандартной пирамидой? 
+Начните с объявления инвертированной переменной и присвоения ей значения true. 
+Вы не меняете эту переменную в своем коде, но вам нужно будет использовать let, 
+чтобы наши тесты могли изменить ее позже.
+*/
+
+
+const character = "#";
+const count = 8;
+const rows = [];
+
+let inverted = true;
+
+
+function padRow(rowNumber, rowCount) {
+	return " ".repeat(rowCount - rowNumber) + character.repeat(2 * rowNumber - 1) + " ".repeat(rowCount - rowNumber);
+}
+
+// TODO: use a different type of loop
+for (let i = 1; i <= count; i++) {
+	rows.unshift(padRow(i, count));
+}
+
+/*while (rows.length < count) {
+  rows.push(padRow(rows.length + 1, count));
+}*/
+
+/*for (let i = count; i > 0; i--) {
+  rows.push(padRow(i, count));
+}*/
+
+let result = ""
+
+for (const row of rows) {
+	result = result + row + "\n";
+}
+
+console.log(result);
